@@ -71,6 +71,11 @@
     [self configCustomNaviBar];
     [self configBottomToolBar];
     self.view.clipsToBounds = YES;
+        if (@available(iOS 13.0, *)) {
+        self.modalPresentationStyle = UIModalPresentationAutomatic;
+    } else {
+        // Fallback on earlier versions
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];    
 }
 
